@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import { Global } from '@emotion/core';
+import style from '../style/reset';
 
-import Header from './header'
-import './layout.css'
+import Header from './header';
+// import './layout.css';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -28,6 +30,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+        <Global styles={style} />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -42,10 +45,10 @@ const Layout = ({ children }) => (
       </>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
